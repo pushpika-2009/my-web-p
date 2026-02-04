@@ -3,93 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Animated Profile</title>
+    <title>My Professional Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* මුළු පිටුවේම පෙනුම */
-        body {
+        :root {
+            --primary-color: #6366f1;
+            --bg-dark: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-main: #f8fafc;
+        }
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
-            background-size: 400% 400%;
-            animation: gradientBG 10s ease infinite;
-            overflow: hidden;
+            padding: 20px;
         }
 
-        /* Background Animation */
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* මැද තියෙන Card එක */
+        /* Container that fits any screen */
         .card {
-            position: relative;
-            width: 350px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px); /* වීදුරු පෙනුම ලබා දෙයි */
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 500px;
             text-align: center;
-            color: white;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            transition: 0.5s;
-            cursor: pointer;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 1s ease-in-out;
         }
 
-        /* Card එක උඩට Mouse එක ගෙනියන විට වෙනස් වීම */
-        .card:hover {
-            transform: translateY(-20px);
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 25px 45px rgba(0,0,0,0.6);
+        /* Image Styling - Auto Fit & Controlled Size */
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover; /* Keeps image ratio perfect */
+            border: 4px solid var(--primary-color);
+            margin-bottom: 20px;
+            transition: transform 0.4s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05) rotate(3deg);
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #00dbde, #fc00ff);
+            font-size: 2rem;
+            margin-bottom: 8px;
+            background: linear-gradient(to right, #818cf8, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        p {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            line-height: 1.6;
+        .role {
+            font-weight: 300;
+            color: #94a3b8;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: block;
         }
 
-        /* Button එක සහ එහි Animation */
-        .btn {
+        .description {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .skill-tag {
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        /* Contact Button */
+        .cta-btn {
             display: inline-block;
-            margin-top: 20px;
-            padding: 10px 25px;
-            background: #fff;
-            color: #302b63;
+            background: var(--primary-color);
+            color: white;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
+            padding: 12px 35px;
+            border-radius: 12px;
+            font-weight: 600;
             transition: 0.3s;
         }
 
-        .btn:hover {
-            letter-spacing: 2px;
-            background: #00dbde;
-            color: white;
+        .cta-btn:hover {
+            background: #4f46e5;
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive adjustments for very small phones */
+        @media (max-width: 400px) {
+            .card { padding: 30px 20px; }
+            h1 { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <h1>Welcome!</h1>
-        <p>මම GitHub Pages හරහා හදපු මගේ පළමු සජීවී (Animated) වෙබ් අඩවියයි.</p>
-        <a href="#" class="btn">වැඩිදුර බලන්න</a>
+        <img src="hi.png" alt="My Profile" class="profile-img">
+        
+        <h1>I'm Pushpika</h1>
+        <span class="role">CREATIVE DEVELOPER</span>
+        
+        <p class="description">
+            Hello! I am a passionate tech enthusiast learning to build beautiful and functional web experiences. Welcome to my personal corner on the internet.
+        </p>
+
+        <div class="skills-container">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">GitHub</span>
+        </div>
+
+        <a href="mailto:your-eapushpika@gmail.com" class="cta-btn">Contact Me</a>
     </div>
 
 </body>
