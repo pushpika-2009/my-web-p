@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Animated Profile</title>
+    <style>
+        /* මුළු පිටුවේම පෙනුම */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            overflow: hidden;
+        }
+
+        /* Background Animation */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* මැද තියෙන Card එක */
+        .card {
+            position: relative;
+            width: 350px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px); /* වීදුරු පෙනුම ලබා දෙයි */
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            color: white;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        /* Card එක උඩට Mouse එක ගෙනියන විට වෙනස් වීම */
+        .card:hover {
+            transform: translateY(-20px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 45px rgba(0,0,0,0.6);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #00dbde, #fc00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Button එක සහ එහි Animation */
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: #fff;
+            color: #302b63;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            letter-spacing: 2px;
+            background: #00dbde;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Welcome!</h1>
+        <p>මම GitHub Pages හරහා හදපු මගේ පළමු සජීවී (Animated) වෙබ් අඩවියයි.</p>
+        <a href="#" class="btn">වැඩිදුර බලන්න</a>
+    </div>
+
+</body>
+</html>
